@@ -22,8 +22,8 @@ To set up MicroQuant, follow these steps:
 
 1. **Clone the Repository**
    ```sh
-   git clone https://github.com/your-repository/microquant.git
-   cd microquant
+   https://github.com/sojitra-nency/MicroQuant-Bacterial_Colony.git
+   cd MicroQuant-Bacterial_Colony
    ```
 2. **Install Dependencies**
 
