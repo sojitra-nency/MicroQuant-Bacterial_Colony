@@ -1,14 +1,38 @@
 # MicroQuant
 
-MicroQuant is a Python-based application used to count the number of bacteria on a given petri dish. It leverages various computer vision and image processing techniques to accurately detect and quantify bacterial colonies.
+MicroQuant is a Python-based application designed to accurately count the number of bacteria on a given petri dish. It utilizes advanced computer vision and image processing techniques to detect and quantify bacterial colonies with precision.
 
+## Features
+- **Automated Bacterial Colony Detection:** Uses computer vision to identify and count bacterial colonies in an image.
+- **Image Processing Techniques:** Applies thresholding, contour detection, and morphological operations to enhance detection accuracy.
+- **Visual Representation:** Displays the processed image with marked bacterial colonies for easy interpretation.
+- **Efficient Computation:** Optimized for performance using well-established Python libraries.
+
+## Technologies Used
 MicroQuant is built using the following technologies and libraries:
 
-- OpenCV: A powerful computer vision library for image and video processing.
-- NumPy: A fundamental package for scientific computing in Python.
-- Matplotlib: A plotting library for creating visualizations in Python.
-- scikit-image (skimage): An image processing library that provides a collection of algorithms for image manipulation.
-- scikit-learn (sklearn): A machine learning library used for data analysis and modeling.
+- **OpenCV:** A powerful computer vision library for image and video processing.
+- **NumPy:** A fundamental package for scientific computing in Python.
+- **Matplotlib:** A plotting library for creating visualizations in Python.
+- **scikit-image (skimage):** Provides a collection of algorithms for image manipulation.
+- **scikit-learn (sklearn):** Used for data analysis and modeling.
 
-The application will process the image using various image processing techniques and display the resulting image with the detected bacterial colonies marked. Additionally, the total count of the bacterial colonies will be printed in the console.
+## Installation
+To set up MicroQuant, follow these steps:
 
+1. **Clone the Repository**
+   ```sh
+   git clone https://github.com/your-repository/microquant.git
+   cd microquant
+   ```
+2. **Install Dependencies**
+
+## Usage
+To run the application, use the following command:
+```sh
+python run_all_auto.py
+```
+The application will process the image, detect bacterial colonies, and display the results with the total count printed in the console.
+
+## Contributing
+Contributions are welcome! If you’d like to improve MicroQuant, feel free to fork the repository, make changes, and submit a pull request.
