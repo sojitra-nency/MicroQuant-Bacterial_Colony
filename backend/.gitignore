@@ -1,0 +1,24 @@
+# ── Python ────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# ── Virtual environment ────────────────────────────────────────
+venv/
+.venv/
+
+# ── Env / secrets ─────────────────────────────────────────────
+.env
+
+# ── Upload temp files ─────────────────────────────────────────
+uploads/
+
+# ── Test artifacts ────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/

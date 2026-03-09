@@ -1,7 +1,7 @@
 import numpy as np
 from skimage import draw, morphology, transform, feature, measure, filters
 from typing import Tuple, List, Optional
-import config
+from app.config import settings as config
 
 class ColonyDetector:
     """

@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from skimage import transform, color
 import numpy as np
 from typing import Optional
-import config
+from app.config import settings as config
 
 class ColonyRenderer:
     """

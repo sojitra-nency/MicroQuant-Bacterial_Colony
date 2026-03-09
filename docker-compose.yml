@@ -1,0 +1,79 @@
+# Usage:
+#   dev  → docker compose --profile dev up --build
+#   prod → docker compose --profile prod up --build
+
+# ── YAML anchors (shared config) ──────────────────────────────
+x-backend-base: &backend-base
+  build:
+    context: ./backend
+  networks: [app]
+  restart: unless-stopped
+
+x-frontend-base: &frontend-base
+  build:
+    context: ./frontend
+  networks: [app]
+  restart: unless-stopped
+
+# ── Services ──────────────────────────────────────────────────
+services:
+
+  # ── Backend ─────────────────────────────────────────────────
+  backend-dev:
+    <<: *backend-base
+    profiles: [dev]
+    build:
+      context: ./backend
+      target: dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app          # hot-reload: reflects code changes instantly
+    environment:
+      DEBUG: "true"
+
+  backend:
+    <<: *backend-base
+    profiles: [prod]
+    build:
+      context: ./backend
+      target: prod
+    ports:
+      - "8000:8000"
+    environment:
+      DEBUG: "false"
+
+  # ── Frontend ────────────────────────────────────────────────
+  frontend-dev:
+    <<: *frontend-base
+    profiles: [dev]
+    build:
+      context: ./frontend
+      target: dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/app/src  # hot-reload: reflects src changes instantly
+      - ./frontend/public:/app/public
+    environment:
+      NEXT_PUBLIC_API_URL: "http://localhost:8000"
+    depends_on:
+      - backend-dev
+
+  frontend:
+    <<: *frontend-base
+    profiles: [prod]
+    build:
+      context: ./frontend
+      target: prod
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: "http://localhost:8000"
+    depends_on:
+      - backend
+
+# ── Networks ──────────────────────────────────────────────────
+networks:
+  app:
+    driver: bridge
