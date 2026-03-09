@@ -28,7 +28,8 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./backend:/app          # hot-reload: reflects code changes instantly
+      - ./backend:/app           # hot-reload: reflects code changes instantly
+      - /opt/venv                # keep container's venv intact
     environment:
       DEBUG: "true"
 
@@ -53,8 +54,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend/src:/app/src  # hot-reload: reflects src changes instantly
-      - ./frontend/public:/app/public
+      - ./frontend:/app                  # hot-reload: full source mounted
+      - /app/node_modules                # keep container's node_modules intact
     environment:
       NEXT_PUBLIC_API_URL: "http://localhost:8000"
     depends_on:
